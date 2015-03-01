@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Mobile Dev</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+        <script>
+            $(function () {
+                var toggleDiv = function (e) {
+                    console.log('toggle');
+                    $('#aDiv').toggle();
+                    e.preventDefault();
+                };
+
+                $(document).delegate('[data-role="navbar"] a', 'click', toggleDiv);
+            });
+
+        </script>
+
+    </head>
+    <body>
+        <div data-role="page">
+            <header data-role="header">
+                <h1>HvA</h1>
+            </header>
+            <article data-role ="content" >
+                <ul data-role ="listview" data-filter="true">
+                    <li><a href="https://www.sis.hva.nl:8011/psp/S2PRD/?cmd=login/psp/S020PRD/EMPLOYEE/HRMS/?cmd=logout" data-transition="slide"><h1>SIS</h1><p>Hier vind je cijfers en gegevens van je zelf</p></a></li>
+                    <li><a href="#dlwoPage" data-transition="slide"><h1>DMCI</h1><p>Alle info over je studie en tentamens kan hier gevonden worden</p></a></li>
+                    <li><a href="https://home.informatica.hva.nl/vlo/" data-transition="slide"><h1>VLO</h1><p>Hier vind je huiswerk en Powerpoints</p></a></li>
+
+                </ul>
+            </article>
+
+            <footer data-role="footer" data-position="fixed">
+                <a href="#popupBasic" data-rel="popup" data-transition="pop" data-icon="info"></a>
+            </footer>
+            <div data-role="popup" id="popupBasic">
+                <p>Deze app zorgt ervoor dat je alle HVA websites in een app hebt gelinked.</p>
+            </div>
+        </div>
+        
+
+        <div id="dlwoPage" data-role="page">
+            <header data-role="header">
+                <a href="#" data-rel="back">Back</a>
+                <h1>HvA</h1>
+            </header>
+
+
+            <article data-role ="content" >
+                <ul data-role ="listview" data-filter="true">
+                    <li><a href="https://ict.dmci.hva.nl/NL/Algemeen/Tentamenorganisatie/Paginas/default.aspx"><h1>Tentamens</h1><p>Hier kan je alle info vinden over tijden en locaties</p></a></li>
+                    <li><a href="https://ict.dmci.hva.nl/NL/Algemeen/Paginas/Stagelanding.aspx"><h1>Stage</h1><p>Hier kan je alle info over stages vinden</p></a></li>
+                    <li><a href="https://ict.dmci.hva.nl/NL/Studieprogramma/Paginas/default.aspx" ><h1>Studieprogramma</h1><p>Hoe zit je studie in elkaar? Kijk hier</p></a></li>
+                    <li><a href="https://home.informatica.hva.nl/vlo/"><h1>Archief</h1><p>Oud info blijft info!.</p></a></li>
+
+                </ul>
+            </article>
+            <footer data-role="footer" data-position="fixed">
+                <a href="#popupBasic" data-rel="popup" data-transition="pop" data-icon="info"></a>
+            </footer>
+            <div data-role="popup" id="popupBasic">
+                <p>Deze app zorgt ervoor dat je alle HVA websites in een app hebt gelinked.</p>
+            </div>
+        </div>
+
+</html>
