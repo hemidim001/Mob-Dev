@@ -10,9 +10,12 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+        <script src="app.js"></script>
+
         <script>
             $(function () {
                 var toggleDiv = function (e) {
@@ -26,10 +29,17 @@ and open the template in the editor.
 
         </script>
 
+        <script>
+            $(document).onload(function () {
+                var inputvalue = "field 1";
+                $('#MyEdit').val(inputvalue);
+            });
+        </script>
+
     </head>
     <body>
         <div data-role="page">
-            <header data-role="header">
+            <header data-role="header" class="headerStyle">
                 <h1>HvA</h1>
             </header>
             <article data-role ="content" >
@@ -38,17 +48,20 @@ and open the template in the editor.
                     <li><a href="#dlwoPage" data-transition="slide"><h1>DMCI</h1><p>Alle info over je studie en tentamens kan hier gevonden worden</p></a></li>
                     <li><a href="https://home.informatica.hva.nl/vlo/" data-transition="slide"><h1>VLO</h1><p>Hier vind je huiswerk en Powerpoints</p></a></li>
 
+
                 </ul>
+
             </article>
 
             <footer data-role="footer" data-position="fixed">
-                <a href="#popupBasic" data-rel="popup" data-transition="pop" data-icon="info"></a>
+                <a href="#popupBasic" data-rel="popup" data-transition="pop" data-icon="info">Info</a>
+                <a href="#pageAdd" data-icon="action">Eigen links</a>
             </footer>
             <div data-role="popup" id="popupBasic">
                 <p>Deze app zorgt ervoor dat je alle HVA websites in een app hebt gelinked.</p>
             </div>
         </div>
-        
+
 
         <div id="dlwoPage" data-role="page">
             <header data-role="header">
@@ -63,15 +76,46 @@ and open the template in the editor.
                     <li><a href="https://ict.dmci.hva.nl/NL/Algemeen/Paginas/Stagelanding.aspx"><h1>Stage</h1><p>Hier kan je alle info over stages vinden</p></a></li>
                     <li><a href="https://ict.dmci.hva.nl/NL/Studieprogramma/Paginas/default.aspx" ><h1>Studieprogramma</h1><p>Hoe zit je studie in elkaar? Kijk hier</p></a></li>
                     <li><a href="https://home.informatica.hva.nl/vlo/"><h1>Archief</h1><p>Oud info blijft info!.</p></a></li>
-
                 </ul>
+
             </article>
             <footer data-role="footer" data-position="fixed">
                 <a href="#popupBasic" data-rel="popup" data-transition="pop" data-icon="info"></a>
+                <a href="#pageAdd" data-icon="action"></a>
             </footer>
             <div data-role="popup" id="popupBasic">
                 <p>Deze app zorgt ervoor dat je alle HVA websites in een app hebt gelinked.</p>
             </div>
         </div>
+
+        <div id="pageAdd" data-role="page" >
+            <div data-role="header">
+                <a href="#" data-rel="back">Back</a>
+                <h1>Eigen links</h1>
+            </div>
+            <div data-role="content">
+                <input type="text" name="itemTitle" placeholder="Titel" >
+                <input type="text" name="item" placeholder="URL" >
+                <button type="button" onClick="add();" >Voeg Toe!</button>
+
+            </div>
+             <article data-role ="content" >
+                <ul id="items" data-role ="listview" data-inset="true" data-filter="true"></ul>
+                    
+            </article>
+         
+
+
+        </div>
+        <script> function saveData() {
+                var input = document.getElementById("newURL");
+                localStorage.setItem("url", input.value);
+                var storedValue = localStorage.getItem("url");
+                $('#MyeEdit').val(storedValue);
+            }
+        </script>
+
+
+
 
 </html>
